@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,13 +26,12 @@ public class EditInventoryDetailsFragment extends Fragment {
     FragmentActivity activity = getActivity();
     Uri uri=Uri.parse(URI);
     Long id;String id1;
-    TextView productNameValue;
-    TextView quanitityAmt;
-    TextView productPriceValue;
+    EditText productNameValue;
+    EditText quanitityAmt;
+    EditText productPriceValue;
     Button minusQuanitity ;
-    Button plusQuanitity;
-    String quantity;
-    Button delete;
+    Button plusQuanitity,delete;
+    String quantity,  productName, productPrice;
 
     public EditInventoryDetailsFragment(Long id) {
         super();
@@ -50,17 +50,16 @@ public class EditInventoryDetailsFragment extends Fragment {
 
         queryResult.moveToFirst();
         if(queryResult!=null){
-            productNameValue = (TextView)rootView.findViewById(R.id.productNameValue);
-            quanitityAmt = (TextView)rootView.findViewById(R.id.quanitityAmt);
-            productPriceValue = (TextView)rootView.findViewById(R.id.productPriceValue);
-            productPriceValue = (TextView)rootView.findViewById(R.id.productPriceValue);
+            productNameValue = (EditText)rootView.findViewById(R.id.productNameValue);
+            quanitityAmt = (EditText)rootView.findViewById(R.id.quanitityAmt);
+            productPriceValue = (EditText)rootView.findViewById(R.id.productPriceValue);
             minusQuanitity = (Button) rootView.findViewById(R.id.minusQuanitity);
             plusQuanitity = (Button) rootView.findViewById(R.id.plusQuanitity);
             delete = (Button) rootView.findViewById(R.id.delete);
 
-            String productName = queryResult.getString(queryResult.getColumnIndex(PRODUCT_NAME));
+            productName = queryResult.getString(queryResult.getColumnIndex(PRODUCT_NAME));
             quantity = queryResult.getString(queryResult.getColumnIndex(PRODUCT_QUANTITY));
-            String productPrice = queryResult.getString(queryResult.getColumnIndex(PRODUCT_PRICE));
+            productPrice = queryResult.getString(queryResult.getColumnIndex(PRODUCT_PRICE));
 
             productNameValue.setText(productName);
             quanitityAmt.setText(quantity);

@@ -30,7 +30,7 @@ public class DetailsActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.container1, new EditInventoryDetailsFragment(id));;
             fragmentTransaction.commit();
         }else {
-            setTitle(getResources().getText(R.string.editInventory));
+            setTitle(getResources().getText(R.string.NewInventory));
             fragmentTransaction.replace(R.id.container1, new NewInventoryDetailsFragment());;
             fragmentTransaction.commit();
             new NewInventoryDetailsFragment();

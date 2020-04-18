@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@id/productImage"
         app:layout_constraintWidth_percent="0.4" />
 
-    <TextView
+    <EditText
         android:id="@+id/productNameValue"
         android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/productName"/>
 
 
-    <TextView
+    <EditText
         android:id="@+id/quanitityAmt"
         android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
@@ -71,7 +71,8 @@
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintLeft_toRightOf="@+id/productQuantity"
         app:layout_constraintTop_toBottomOf="@id/productName"
-        app:layout_constraintWidth_percent="0.4" />
+        app:layout_constraintWidth_percent="0.4"
+        android:digits="0123456789"/>
 
 
     <TextView
@@ -86,19 +87,20 @@
         app:layout_constraintWidth_percent="0.4"
         app:layout_constraintTop_toBottomOf="@id/productQuantity"/>
 
-    <TextView
+    <EditText
         android:id="@+id/productPriceValue"
         android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
         android:layout_margin="@dimen/marginInside"
         android:gravity="center|left"
-        android:text="@string/productPricevalue"
+        android:hint="@string/productPricevalue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintLeft_toRightOf="@id/productPrice"
         app:layout_constraintStart_toEndOf="@+id/productPrice"
         app:layout_constraintTop_toBottomOf="@id/productQuantity"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintWidth_percent="0.5"
+        android:digits="0123456789"/>
     <Button
         android:id="@+id/delete"
         android:layout_width="match_parent"

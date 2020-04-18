@@ -7,15 +7,19 @@
     <string name="empty_view_title_text">It\'s a bit lonely here...</string>
     <string name="productName">Product name :</string>
     <string name="productValue">Product name value</string>
-    <string name="productPrice">Product Price :</string>
+    <string name="productPrice">Product Price ($):</string>
     <string name="keep_editing">Keep Editing</string>
+    <string name="save">Save</string>
+    <string name="recordSaved">Record saved</string>
 
     <string name="quanValue">0</string>
-    <string name="productPricevalue">Product Price value</string>
+    <string name="productPricevalue">50</string>
     <string name="createdummydata">Create dummy data</string>
     <string name="deleteall">Delete all</string>
     <string name="editInventory">Edit inventory</string>
     <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <string name="NewInventory">New inventory</string>
 
     <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
     <string name="discard">Delete</string>

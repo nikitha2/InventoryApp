@@ -84,6 +84,7 @@ public class InventoryProvider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         Uri newUri;
+        values=ValuesValidation(values);
         newId = db.insert(TABLE_NAME, null, values);
         newUri = ContentUris.withAppendedId(uri, newId);
 
@@ -146,10 +147,17 @@ public class InventoryProvider extends ContentProvider {
     private ContentValues ValuesValidation(@Nullable ContentValues values) {
         if(values.containsKey(PRODUCT_QUANTITY)){
             String quan=values.getAsString(PRODUCT_QUANTITY);
-            if(Integer.parseInt(quan)<0){
+            if(Integer.parseInt(quan)<0 ||quan.isEmpty()){
                 quan="0";
             }
             values.put(PRODUCT_QUANTITY, quan);
+        }
+        if(values.containsKey(PRODUCT_PRICE)){
+            String price=values.getAsString(PRODUCT_PRICE);
+            if(Integer.parseInt(price)<0 || price.isEmpty() ||price.matches("^[a-zA-Z]*$")){
+                price="0";
+            }
+            values.put(PRODUCT_PRICE, price);
         }
         return values;
     }
