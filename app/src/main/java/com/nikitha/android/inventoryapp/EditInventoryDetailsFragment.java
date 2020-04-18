@@ -104,7 +104,6 @@ public class EditInventoryDetailsFragment extends Fragment {
                     value.put(PRODUCT_QUANTITY, (quan)); //Integer.toString
                     getContext().getContentResolver().update(uri,value,selection,selectionArgs);
                     quanitityAmt.setText(quantity);
-
                 }
             });
 
