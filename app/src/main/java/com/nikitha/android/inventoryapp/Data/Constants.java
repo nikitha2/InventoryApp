@@ -5,6 +5,7 @@ import static com.nikitha.android.inventoryapp.Data.InventoryContract.*;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.*;
 
 public class Constants {
+    public static final String[] COLUMNSALL ={_ID,PRODUCT_NAME,PRODUCT_QUANTITY,PRODUCT_PRICE/*,PRODUCT_IMAGE*/,PRODUCT_SUPPLIER_EMAIL}; ;
     public static int DATABASE_VERSION=1;
     public static int COUNTER=1;
 
@@ -17,4 +18,6 @@ public class Constants {
             + PRODUCT_SUPPLIER_EMAIL + " TEXT NOT NULL );";
 
     public final static String DELETE_SQL_DB= "DROP TABLE [IF EXISTS] "+ TABLE_NAME;
+
+
 }

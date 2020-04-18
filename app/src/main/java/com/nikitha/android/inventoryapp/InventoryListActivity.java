@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static android.provider.BaseColumns._ID;
+import static com.nikitha.android.inventoryapp.Data.Constants.COLUMNSALL;
 import static com.nikitha.android.inventoryapp.Data.Constants.COUNTER;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.*;
 
@@ -101,10 +102,10 @@ public class InventoryListActivity extends AppCompatActivity implements LoaderMa
     private long createDummyData() {
         ContentValues values = new ContentValues();
         values.put(PRODUCT_NAME, "Inventory "+COUNTER);
-        values.put(PRODUCT_PRICE, 50+COUNTER);
+        values.put(PRODUCT_PRICE, 30+COUNTER);
         //values.put(PRODUCT_IMAGE, R.drawable.saleblue);
         values.put(PRODUCT_QUANTITY, 20+COUNTER);
-        values.put(PRODUCT_SUPPLIER_EMAIL, "suplieremail"+COUNTER+"@gmail.com");
+        values.put(PRODUCT_SUPPLIER_EMAIL, "suplieremail@gmail.com");
         COUNTER++;
         Uri newUri = getContentResolver().insert(uri, values);
         long id = ContentUris.parseId(newUri);
@@ -114,8 +115,8 @@ public class InventoryListActivity extends AppCompatActivity implements LoaderMa
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        String[] columns={_ID,PRODUCT_NAME,PRODUCT_QUANTITY,PRODUCT_PRICE/*,PRODUCT_IMAGE*/,PRODUCT_SUPPLIER_EMAIL};
-        CursorLoader petsCursorLoader = new CursorLoader(this, uri, columns,null, null, null);
+        //String[] columns={_ID,PRODUCT_NAME,PRODUCT_QUANTITY,PRODUCT_PRICE/*,PRODUCT_IMAGE*/,PRODUCT_SUPPLIER_EMAIL};
+        CursorLoader petsCursorLoader = new CursorLoader(this, uri, COLUMNSALL,null, null, null);
         return petsCursorLoader;
     }
 

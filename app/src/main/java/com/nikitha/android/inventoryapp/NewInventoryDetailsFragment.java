@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.PRODUCT_NAME;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.PRODUCT_PRICE;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.PRODUCT_QUANTITY;
+import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.PRODUCT_SUPPLIER_EMAIL;
 import static com.nikitha.android.inventoryapp.Data.InventoryContract.InventoryDbTableEntry.URI;
 
 public class NewInventoryDetailsFragment  extends Fragment {
@@ -32,7 +33,7 @@ public class NewInventoryDetailsFragment  extends Fragment {
     String id1;
     EditText productNameValue;
     EditText quanitityAmt;
-    EditText productPriceValue;
+    EditText productPriceValue,productEmailValue;
     Button minusQuanitity;
     Button plusQuanitity, delete;
     String quantity, productName, productPrice;
@@ -49,6 +50,8 @@ public class NewInventoryDetailsFragment  extends Fragment {
         productNameValue = (EditText) rootView.findViewById(R.id.productNameValue);
         quanitityAmt = (EditText) rootView.findViewById(R.id.quanitityAmt);
         productPriceValue = (EditText) rootView.findViewById(R.id.productPriceValue);
+        productEmailValue = (EditText) rootView.findViewById(R.id.productEmailValue);
+
         setHasOptionsMenu(true);
         return rootView;
     }
@@ -74,10 +77,13 @@ public class NewInventoryDetailsFragment  extends Fragment {
                 String productNameValue1 = productNameValue.getText().toString();
                 String quanitityAmt1 = quanitityAmt.getText().toString();
                 String productPriceValue1 = productPriceValue.getText().toString();
+                String email=productEmailValue.getText().toString();
                 ContentValues values = new ContentValues();
                 values.put(PRODUCT_QUANTITY, (quanitityAmt1)); //Integer.toString
                 values.put(PRODUCT_NAME, (productNameValue1));
                 values.put(PRODUCT_PRICE, (productPriceValue1));
+                values.put(PRODUCT_SUPPLIER_EMAIL, email);
+
                 Uri newUri = getContext().getContentResolver().insert(uri, values);
                 long newId = ContentUris.parseId(newUri);
                 if (newId != -1) {

@@ -9,5 +9,6 @@
     <dimen name="buttonWeight">100dp</dimen>
     <dimen name="flatBtnDimen">56dp</dimen>
     <dimen name="margin1">50dp</dimen>
+    <dimen name="marginInside2">5dp</dimen>
 
 </resources>

@@ -7,7 +7,9 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.nikitha.android.inventoryapp.R;
 
@@ -26,6 +28,7 @@ public class InventoryProvider extends ContentProvider {
     long newId;
     public static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     int match;
+    String priceValue="0";
 
     static {
         sUriMatcher.addURI(CONTENT_AUTHORITY, TABLE_NAME, INVENTORY_CODE);
@@ -83,11 +86,12 @@ public class InventoryProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        Uri newUri;
+        Uri newUri = ContentUris.withAppendedId(uri, -1);;
         values=ValuesValidation(values);
-        newId = db.insert(TABLE_NAME, null, values);
-        newUri = ContentUris.withAppendedId(uri, newId);
-
+        if(NameNotNull(values)){
+            newId = db.insert(TABLE_NAME, null, values);
+            newUri = ContentUris.withAppendedId(uri, newId);
+        }
         if (newId == -1) {
             String e = R.string.insetNotPossible + uri.toString();
             Log.e(LOG_TAG, e);
@@ -96,6 +100,19 @@ public class InventoryProvider extends ContentProvider {
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return newUri;
+    }
+
+    private boolean NameNotNull(ContentValues values) {
+        if(values.containsKey(PRODUCT_NAME)){
+            String name=values.getAsString(PRODUCT_NAME);
+            if (TextUtils.isEmpty(name)) {
+                Log.e(LOG_TAG, String.valueOf(R.string.name));
+                Toast toast = Toast.makeText(getContext(), R.string.name, Toast.LENGTH_SHORT);
+                toast.show();
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -147,17 +164,40 @@ public class InventoryProvider extends ContentProvider {
     private ContentValues ValuesValidation(@Nullable ContentValues values) {
         if(values.containsKey(PRODUCT_QUANTITY)){
             String quan=values.getAsString(PRODUCT_QUANTITY);
-            if(Integer.parseInt(quan)<0 ||quan.isEmpty()){
+            if(quan.isEmpty()||quan==null){
+                quan="0";
+            }
+           else if(Integer.parseInt(quan)<0){
                 quan="0";
             }
             values.put(PRODUCT_QUANTITY, quan);
         }
         if(values.containsKey(PRODUCT_PRICE)){
             String price=values.getAsString(PRODUCT_PRICE);
-            if(Integer.parseInt(price)<0 || price.isEmpty() ||price.matches("^[a-zA-Z]*$")){
-                price="0";
+            if(price.isEmpty()||price==null){
+                priceValue="0";
             }
-            values.put(PRODUCT_PRICE, price);
+           else if(Integer.parseInt(price)<0){
+                priceValue="0";
+            }
+           else{
+               priceValue=price;
+            }
+            values.put(PRODUCT_PRICE, priceValue);
+        }
+
+        if(values.containsKey(PRODUCT_SUPPLIER_EMAIL)){
+            String email=values.getAsString(PRODUCT_SUPPLIER_EMAIL);
+            if(email.isEmpty()||email==null){
+                email="inventoryEmail@gmail.com";
+            }
+            values.put(PRODUCT_SUPPLIER_EMAIL, email);
+        }
+        if(values.containsKey(PRODUCT_NAME)){
+            String name=values.getAsString(PRODUCT_NAME);
+            Log.e(LOG_TAG, String.valueOf(R.string.name));
+            Toast toast = Toast.makeText(getContext(), R.string.name, Toast.LENGTH_SHORT);
+            toast.show();
         }
         return values;
     }

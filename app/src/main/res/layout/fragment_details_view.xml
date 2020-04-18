@@ -40,7 +40,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:gravity="center|left"
-        android:text="@string/productValue"
+        android:hint="@string/productValue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toEndOf="@+id/productName"
@@ -66,7 +66,7 @@
         android:layout_height="@dimen/zeroHeight"
         android:layout_margin="@dimen/marginInside"
         android:gravity="center"
-        android:text="@string/quanValue"
+        android:hint="@string/quanValue"
         app:layout_constraintBottom_toTopOf="@id/productPrice"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintLeft_toRightOf="@+id/productQuantity"
@@ -92,6 +92,7 @@
         android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
         android:layout_margin="@dimen/marginInside"
+        android:digits="0123456789"
         android:gravity="center|left"
         android:hint="@string/productPricevalue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,23 +100,36 @@
         app:layout_constraintLeft_toRightOf="@id/productPrice"
         app:layout_constraintStart_toEndOf="@+id/productPrice"
         app:layout_constraintTop_toBottomOf="@id/productQuantity"
-        app:layout_constraintWidth_percent="0.5"
-        android:digits="0123456789"/>
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="match_parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/productEmail"
+        android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
         android:layout_margin="@dimen/marginInside"
-        android:background="@drawable/roundcorners"
-        android:gravity="center"
-        android:src="@drawable/button_states"
-        android:text="@string/order"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center|left"
+        android:text="@string/productEmail"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/productPrice"
-        app:layout_constraintWidth_percent="0.3"
-        android:backgroundTint="@color/blue" />
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/productPrice"/>
+
+
+    <EditText
+        android:id="@+id/productEmailValue"
+        android:layout_width="@dimen/zeroHeight"
+        android:layout_height="@dimen/zeroHeight"
+        android:layout_margin="@dimen/marginInside"
+        android:gravity="center"
+        android:hint="@string/email"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toRightOf="@+id/productEmail"
+        app:layout_constraintTop_toBottomOf="@id/productPriceValue"
+        app:layout_constraintWidth_percent="0.6" />
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

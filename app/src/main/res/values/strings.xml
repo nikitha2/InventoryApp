@@ -11,6 +11,10 @@
     <string name="keep_editing">Keep Editing</string>
     <string name="save">Save</string>
     <string name="recordSaved">Record saved</string>
+    <string name="recordUpdated">Record Updated</string>
+
+    <string name="email">nikitha@gmail.com</string>
+    <string name="name">Name cannot be null</string>
 
     <string name="quanValue">0</string>
     <string name="productPricevalue">50</string>
@@ -24,6 +28,7 @@
     <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
     <string name="discard">Delete</string>
     <string name="unKnownBreed">Unknown breed</string>
+    <string name="productEmail">Product Emailid :</string>
 
     <string name="productQuantity">Product Quantity :</string>
     <string name="plus">+</string>
