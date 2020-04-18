@@ -8,12 +8,18 @@
     <string name="productName">Product name :</string>
     <string name="productValue">Product name value</string>
     <string name="productPrice">Product Price :</string>
+    <string name="keep_editing">Keep Editing</string>
 
     <string name="quanValue">0</string>
     <string name="productPricevalue">Product Price value</string>
     <string name="createdummydata">Create dummy data</string>
     <string name="deleteall">Delete all</string>
     <string name="editInventory">Edit inventory</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Delete</string>
+    <string name="unKnownBreed">Unknown breed</string>
 
     <string name="productQuantity">Product Quantity :</string>
     <string name="plus">+</string>

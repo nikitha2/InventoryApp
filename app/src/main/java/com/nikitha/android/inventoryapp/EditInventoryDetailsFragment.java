@@ -1,6 +1,7 @@
 package com.nikitha.android.inventoryapp;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -21,7 +24,7 @@ public class EditInventoryDetailsFragment extends Fragment {
 
     FragmentActivity activity = getActivity();
     Uri uri=Uri.parse(URI);
-    Long id;
+    Long id;String id1;
     TextView productNameValue;
     TextView quanitityAmt;
     TextView productPriceValue;
@@ -114,14 +117,62 @@ public class EditInventoryDetailsFragment extends Fragment {
                     String selection = _ID + "=?";
                     String[] selectionArgs = new String[]{id};
                     String[] columns={PRODUCT_QUANTITY};
-                    Cursor queryResult = getContext().getContentResolver().query(uri, columns, selection, selectionArgs, null);
+                    /*Cursor queryResult = getContext().getContentResolver().query(uri, columns, selection, selectionArgs, null);
                     queryResult.moveToFirst();
-                    quantity=queryResult.getString(queryResult.getColumnIndex(PRODUCT_QUANTITY));
+*/
+                    DialogInterface.OnClickListener discardButtonClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // User clicked "Discard" button, navigate to parent activity.
+                            NavUtils.navigateUpFromSameTask(getActivity());
+                        }
+                    };
+                    // Show a dialog that notifies the user they have unsaved changes
+                    showUnsavedChangesDialog(discardButtonClickListener,id);
+
+//                    quantity=queryResult.getString(queryResult.getColumnIndex(PRODUCT_QUANTITY));
                 }
             });
         }
         return rootView;
     }
+
+    /**
+     * This code makes a AlertDialog using the AlertDialogBuilder. The method accepts a OnClickListener for the discard button.
+     * We do this because the behavior for clicking back or up is a little bit different.
+     * @param discardButtonClickListener
+     */
+    private void showUnsavedChangesDialog(DialogInterface.OnClickListener discardButtonClickListener,String id) {
+        id1=id;
+        // Create an AlertDialog.Builder and set the message, and click listeners
+        // for the positive and negative buttons on the dialog.
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.unsaved_changes_dialog_msg);
+        builder.setPositiveButton(R.string.discard,  new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String selection = _ID + "=?";
+                String[] selectionArgs = new String[]{id1};
+                getContext().getContentResolver().delete(uri,selection,selectionArgs);
+                NavUtils.navigateUpFromSameTask(getActivity());
+            }
+        });
+        builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked the "Keep editing" button, so dismiss the dialog
+                // and continue editing the pet.
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        // Create and show the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 //    @Override
 //    public void onStop() {
