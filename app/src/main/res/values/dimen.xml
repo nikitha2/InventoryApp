@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="item1Height">22dp</dimen>
+    <dimen name="zeroHeight">0dp</dimen>
+    <dimen name="margin">32dp</dimen>
+    <dimen name="marginInside">8dp</dimen>
+    <dimen name="buttonHeight">20dp</dimen>
+    <dimen name="buttonWeight">100dp</dimen>
+    <dimen name="flatBtnDimen">56dp</dimen>
+    <dimen name="margin1">50dp</dimen>
+
+</resources>

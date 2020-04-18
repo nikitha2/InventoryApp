@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin">
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item1Height"
+        android:text="@string/productName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/marginInside"
+        style="@style/textStyle"/>
+
+    <TextView
+        android:id="@+id/quantityLable"
+        android:layout_width="@dimen/zeroHeight"
+        android:layout_height="@dimen/item1Height"
+        android:text="@string/productQuantity"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productName"
+        app:layout_constraintRight_toLeftOf="@id/quantity"
+        android:layout_margin="@dimen/marginInside"
+        style="@style/textStyle"/>
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="@dimen/zeroHeight"
+        android:layout_height="@dimen/item1Height"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productName"
+        app:layout_constraintLeft_toRightOf="@id/quantityLable"
+        android:layout_margin="@dimen/marginInside"
+        style="@style/textStyle"/>
+
+    <TextView
+        android:id="@+id/priceLable"
+        android:layout_width="@dimen/zeroHeight"
+        android:layout_height="@dimen/item1Height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.4"
+        android:text="@string/productPrice"
+        app:layout_constraintTop_toBottomOf="@id/quantity"
+        app:layout_constraintRight_toLeftOf="@id/price"
+        android:layout_margin="@dimen/marginInside"
+        style="@style/textStyle"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="@dimen/zeroHeight"
+        android:layout_height="@dimen/item1Height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintTop_toBottomOf="@id/quantity"
+        app:layout_constraintLeft_toRightOf="@id/priceLable"
+        android:layout_margin="@dimen/marginInside"
+        style="@style/textStyle"/>
+
+    <Button
+        android:id="@+id/sale"
+        android:layout_width="@dimen/buttonWeight"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_margin="@dimen/marginInside"
+        android:background="@drawable/roundcorners"
+        android:src="@drawable/button_states"
+        android:text="@string/sale"
+        android:backgroundTint="@color/defaultcolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price"
+        style="@style/textStyle"
+        android:focusable="false"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

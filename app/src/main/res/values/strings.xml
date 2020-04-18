@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">InventoryApp</string>
+    <string name="sale">Sale</string>
+    <string name="addDetails">Add product details</string>
+    <string name="inventorylist">Inventory list</string>
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">It\'s a bit lonely here...</string>
+    <string name="productName">Product name :</string>
+    <string name="productValue">Product name value</string>
+    <string name="productPrice">Product Price :</string>
+
+    <string name="quanValue">0</string>
+    <string name="productPricevalue">Product Price value</string>
+    <string name="createdummydata">Create dummy data</string>
+    <string name="deleteall">Delete all</string>
+    <string name="editInventory">Edit inventory</string>
+
+    <string name="productQuantity">Product Quantity :</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="delete">Delete</string>
+    <string name="order">Order</string>
+    <string name="insetNotPossible">Insert not possible with URI : </string>
+    <string name="newInverntryAdded"> Inventory added with new row id :</string>
+    <string name="EnewInverntryAdded"> Error when adding new inventory </string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add a pet [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding an item to the inventory</string>
+</resources>
