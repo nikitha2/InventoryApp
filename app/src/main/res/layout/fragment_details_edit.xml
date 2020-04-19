@@ -149,7 +149,6 @@
         android:layout_width="@dimen/zeroHeight"
         android:layout_height="@dimen/zeroHeight"
         android:layout_margin="@dimen/marginInside"
-        android:digits="0123456789"
         android:gravity="center"
         android:hint="@string/email"
         app:layout_constraintHeight_percent="0.1"
