@@ -13,7 +13,7 @@ public class InventoryContract {
         public final static String PRODUCT_NAME = "Name";
         public final static String PRODUCT_QUANTITY = "Quantity";
         public final static String PRODUCT_PRICE = "Price";
-       // public final static String PRODUCT_IMAGE = "Image";
+        public final static String PRODUCT_IMAGE = "Image";
         public final static String PRODUCT_SUPPLIER_EMAIL = "Supplier_emailid";
 
         public final static String CONTENT_AUTHORITY="com.nikitha.android.inventoryapp.Data";
